@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: br.com.levysiqueira.dsl.textualusecase.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: br.com.levysiqueira.dsl.textualusecase.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: br.com.levysiqueira.dsl.textualusecase;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: br.com.levysiqueira.dsl.textualusecase.ui.quickfix,
+ br.com.levysiqueira.dsl.textualusecase.ui.contentassist,
+ br.com.levysiqueira.dsl.textualusecase.ui.contentassist.antlr,
+ br.com.levysiqueira.dsl.textualusecase.ui.internal
+Bundle-Activator: br.com.levysiqueira.dsl.basicusecase.ui.internal.BasicUseCaseActivator

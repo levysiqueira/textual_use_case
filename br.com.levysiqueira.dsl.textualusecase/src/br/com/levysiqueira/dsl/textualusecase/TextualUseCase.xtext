@@ -1,0 +1,117 @@
+/**
+ * Language for textual use case representation.
+ * @author Fábio Levy Siqueira
+ * @version 02/06/2014
+ */
+ 
+ /**
+  * References
+  * - Add attribute to metamodel http://christiandietrich.wordpress.com/2011/07/22/customizing-xtext-metamodel-inference-using-xtend2/
+  */
+grammar br.com.levysiqueira.dsl.textualusecase.TextualUseCase with org.eclipse.xtext.common.Terminals
+
+import "http://wwww.levysiqueira.com.br/TextualUseCase.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+/** TODO
+ * - special characters (ã, à etc.) - no name accepts	
+ */
+UseCaseModel returns UseCaseModel:
+		subject=Subject ';'
+		'actors' '{' actor+=Actor ( "," actor+=Actor)* '}'
+		useCase+=UseCase*;
+
+/**
+ * Agents, Actors and Subject
+ */
+Agent returns Agent:
+	Actor | Subject;
+
+Actor returns Actor:
+	name=Name;
+
+Subject returns Subject:
+	"subject" name=Name; 
+	
+/**
+ * Use Case
+ */
+UseCase returns UseCase:
+	'usecase' name=Name '{'
+		'description' description=Description ';'
+		'actors' actor+=[Actor | Name] ( "," actor+=[Actor | Name])* ';'
+		('preCondition' preCondition=Condition ';')?
+		basicFlow=BasicFlow
+		(alternativeFlow+=AlternativeFlow)*
+		('postCondition' postCondition=Condition ';' )?
+	'}';
+	
+/**
+ * For now it is a simple String... But someday it can be another language!
+ */
+Condition returns Condition:
+	expression=Description;
+	
+/**
+ * Flows
+ */
+BasicFlow returns BasicFlow:
+	name='basic' (steps+=Step)+ 'endbasic';
+
+Step returns Step:
+	Action | ConditionalStatement | LoopStatement | Include; 
+
+Action returns Action:
+	name=StepOrder ')' 'action' '[' agent=[Agent | Name] ']' description=Description  ';';
+
+ConditionalStatement returns ConditionalStatement:
+	name=StepOrder ')' 'if' condition=Condition 'then'
+		(steps+=Step)+
+	'endif';
+
+LoopStatement returns LoopStatement:
+	name=StepOrder ')' 'while' condition=Condition 'do'
+		(steps+=Step)+
+	'endwhile';
+
+AlternativeFlow returns AlternativeFlow:
+	'alternative' name=AlternativeFlowName 'to step' branchingStep=[Step | QualifiedName] 'when' condition=Condition 'then'
+		(steps+=Step)+ 
+	'endflow';
+
+Include returns Include:
+	name=StepOrder ')' 'include' useCase=[UseCase] ';'
+;
+
+/**
+ * Support
+ */	
+StepOrder returns ecore::EString hidden():
+	INT+ | SINGLE_CHAR+
+;
+	
+Name returns ecore::EString:
+	ID+
+;
+
+AlternativeFlowName returns ecore::EString:
+	ID+
+;
+
+QualifiedName returns ecore::EString :
+	(AlternativeFlowName'.')? StepOrder ('.'StepOrder)*
+;
+
+Description returns ecore::EString:
+	(INT|ID|WS|
+	'.'|','|'?'|'\''|'"'| // Punctuation
+	'-'|'+'|'='|'*'|'<'|'>'| // Operators
+	'('|')'|'{'|'}'| // Parenthesis
+	'@'|'%'|'_')+ // Other
+	;
+
+EInt returns ecore::EInt:
+	'-'? INT
+;
+
+terminal SINGLE_CHAR: 'a'..'z';

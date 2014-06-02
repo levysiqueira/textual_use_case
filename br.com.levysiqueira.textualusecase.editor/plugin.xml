@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated TextualUseCase -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="br.com.levysiqueira.textualusecase.presentation.TextualUseCaseModelWizardID"
+            name="%_UI_TextualUseCaseModelWizard_label"
+            class="br.com.levysiqueira.textualusecase.presentation.TextualUseCaseModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TextualUseCaseModelFile.gif">
+         <description>%_UI_TextualUseCaseModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated TextualUseCase -->
+      <editor
+            id="br.com.levysiqueira.textualusecase.presentation.TextualUseCaseEditorID"
+            name="%_UI_TextualUseCaseEditor_label"
+            icon="icons/full/obj16/TextualUseCaseModelFile.gif"
+            extensions="textualusecase"
+            class="br.com.levysiqueira.textualusecase.presentation.TextualUseCaseEditor"
+            contributorClass="br.com.levysiqueira.textualusecase.presentation.TextualUseCaseActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

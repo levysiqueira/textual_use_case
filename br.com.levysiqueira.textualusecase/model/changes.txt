@@ -1,0 +1,6 @@
+Changes from the BasicUseCase
+-----------------------------
+
+2014-06-02
+- Added a name in FlowOfEvents (necessary for Xtext references)
+- Step.order = Step.name (to make easier to use xtext)
