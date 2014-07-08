@@ -6,11 +6,10 @@ import br.com.levysiqueira.textualusecase.Step;
 import br.com.levysiqueira.textualusecase.UseCase;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * Classes with help methods.
@@ -81,13 +80,13 @@ public class TextualUseCaseUtil {
         stepList.addAll(_steps_1);
         EList<Step> _steps_2 = f.getSteps();
         Iterable<Statement> _filter = Iterables.<Statement>filter(_steps_2, Statement.class);
-        final Procedure1<Statement> _function = new Procedure1<Statement>() {
-          public void apply(final Statement it) {
+        final Consumer<Statement> _function = new Consumer<Statement>() {
+          public void accept(final Statement it) {
             EList<Step> _allSteps = TextualUseCaseUtil.getAllSteps(it);
             stepList.addAll(_allSteps);
           }
         };
-        IterableExtensions.<Statement>forEach(_filter, _function);
+        _filter.forEach(_function);
       }
       _xblockexpression = stepList;
     }
@@ -107,13 +106,13 @@ public class TextualUseCaseUtil {
         EList<Step> _steps_1 = s.getSteps();
         stepList.addAll(_steps_1);
         Iterable<Statement> _filter = Iterables.<Statement>filter(stepList, Statement.class);
-        final Procedure1<Statement> _function = new Procedure1<Statement>() {
-          public void apply(final Statement it) {
+        final Consumer<Statement> _function = new Consumer<Statement>() {
+          public void accept(final Statement it) {
             EList<Step> _allSteps = TextualUseCaseUtil.getAllSteps(it);
             stepList.addAll(_allSteps);
           }
         };
-        IterableExtensions.<Statement>forEach(_filter, _function);
+        _filter.forEach(_function);
       }
       _xblockexpression = stepList;
     }
