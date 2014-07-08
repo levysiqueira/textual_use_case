@@ -18,10 +18,3 @@ Requirements
 TODOs
 -----
 	- Make it work again!
-
-Changelog
----------
-
-July 8, 2014
-	- Added Ecore Diagrama using EcoreTools 2
-	- Moved projects to Luna
