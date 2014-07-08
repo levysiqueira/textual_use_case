@@ -1,7 +1,7 @@
 textual_use_case
 ================
 
-Author: 			Fábio Levy Siqueira
+Author:			Fabio Levy Siqueira
 Initial version:	June 2, 2014
 
 DSL for representing textual use cases in Eclipse. The use case metamodel is based on the Essential Use Case metamodel, described in:
@@ -10,10 +10,18 @@ Siqueira, F.L.; Muniz Silva, P.S. An Essential Textual Use Case Meta-model Based
 
 Eclipse plug-ins will be available at http://www.levysiqueira.com.br
 
-Requirements:
-	- Eclipse IDE for Java and DSL Developers (Recommended version: Kepler SR2)
-	- Ecore Tools 1.x (for visualizing the TextualUseCase metamodel)
+Requirements
+------------
+	- Eclipse Modeling Tools (Recommended version: Luna)
+	- Xtext (via Help->Install Modelling Components)
 
-TODOs:
-	- Create a ecore diagram (waiting for ecoretools for luna)
-	- Update project to Luna (end of june)
+TODOs
+-----
+	- Make it work again!
+
+Changelog
+---------
+
+July 8, 2014
+	- Added Ecore Diagrama using EcoreTools 2
+	- Moved projects to Luna
