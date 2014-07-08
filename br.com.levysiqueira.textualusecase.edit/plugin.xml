@@ -7,9 +7,9 @@
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated TextualUseCase -->
+      <!-- @generated textualusecase -->
       <factory
-            uri="http://wwww.levysiqueira.com.br/TextualUseCase.ecore"
+            uri="http://www.levysiqueira.com.br/TextualUseCase"
             class="br.com.levysiqueira.textualusecase.provider.TextualUseCaseItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

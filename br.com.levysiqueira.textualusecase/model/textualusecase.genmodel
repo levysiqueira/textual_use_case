@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/br.com.levysiqueira.textualusecase/src" modelPluginID="br.com.levysiqueira.textualusecase"
+    modelName="TextualUseCase" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>textualusecase.ecore</foreignModel>
+  <genPackages prefix="TextualUseCase" basePackage="br.com.levysiqueira" disposableProviderFactory="true"
+      ecorePackage="textualusecase.ecore#/">
+    <genClasses ecoreClass="textualusecase.ecore#//UseCaseModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCaseModel/useCase"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCaseModel/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCaseModel/subject"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//UseCase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualusecase.ecore#//UseCase/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCase/alternativeFlow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCase/basicFlow"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCase/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCase/postCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCase/preCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualusecase.ecore#//UseCase/description"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCase/useCaseModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//UseCase/includes"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//AlternativeFlow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//AlternativeFlow/branchingStep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//AlternativeFlow/condition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference textualusecase.ecore#//AlternativeFlow/useCase"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualusecase.ecore#//FlowOfEvents">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//FlowOfEvents/steps"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualusecase.ecore#//FlowOfEvents/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualusecase.ecore#//Step">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//Step/alternativeFlow"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference textualusecase.ecore#//Step/statement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualusecase.ecore#//Step/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference textualusecase.ecore#//Step/flowOfEvents"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualusecase.ecore#//Agent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualusecase.ecore#//Agent/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//Agent/actions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualusecase.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//Statement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualusecase.ecore#//Statement/steps"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualusecase.ecore#//Condition/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//BasicFlow">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference textualusecase.ecore#//BasicFlow/useCase"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//Actor">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference textualusecase.ecore#//Actor/useCaseModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//Actor/useCase"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//Subject">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference textualusecase.ecore#//Subject/useCasemodel"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualusecase.ecore#//Action/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//Action/agent"/>
+    </genClasses>
+    <genClasses ecoreClass="textualusecase.ecore#//ConditionalStatement"/>
+    <genClasses ecoreClass="textualusecase.ecore#//LoopStatement"/>
+    <genClasses ecoreClass="textualusecase.ecore#//Include">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualusecase.ecore#//Include/useCase"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

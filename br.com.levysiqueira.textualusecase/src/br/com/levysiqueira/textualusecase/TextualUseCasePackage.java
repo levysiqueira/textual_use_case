@@ -38,7 +38,7 @@ public interface TextualUseCasePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://wwww.levysiqueira.com.br/TextualUseCase.ecore";
+	String eNS_URI = "http://www.levysiqueira.com.br/TextualUseCase";
 
 	/**
 	 * The package namespace name.
@@ -46,7 +46,7 @@ public interface TextualUseCasePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "TextualUseCase";
+	String eNS_PREFIX = "br.com.levysiqueira.textualusecase";
 
 	/**
 	 * The singleton instance of the package.
